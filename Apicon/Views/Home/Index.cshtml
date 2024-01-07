@@ -1,0 +1,39 @@
+﻿@using System.Data;
+@model UserListResponse
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>@Html.DisplayName("ID")</td>
+        <td>@Html.DisplayName("UesrName")</td>
+        <td>@Html.DisplayName("contect")</td>
+        <td>@Html.DisplayName("email")</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var row in Model.data)
+        {
+            <tr>
+                <td>@row.personID</td>
+                <td>@row.name</td>
+                <td>@row.contact</td>
+                <td>@row.email</td>
+                <td>
+                    @using (Html.BeginForm("Edit", "Home", FormMethod.Post))
+                    {
+                        <td>@Html.Hidden("ID",row.personID)</td>
+                        <td><button>Edit</button></td>
+                    }
+                </td>
+                <td>
+                    @using (Html.BeginForm("DeleteUser", "Home", FormMethod.Post))
+                    {
+                    <td>@Html.Hidden("ID",row.personID)</td>
+                    <td><button>Delete</button></td>
+                    }
+                </td>
+            </tr>
+        }
+        
+    </tbody>
+</table>

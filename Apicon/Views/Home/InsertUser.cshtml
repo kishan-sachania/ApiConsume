@@ -1,0 +1,25 @@
+﻿@using System.Data;
+@model User
+@using (Html.BeginForm("Insert","Home",FormMethod.Post))
+{
+    <table>
+        <tr>
+        <td>@Html.HiddenFor(model=>model.personID)</td>
+        <td>@Html.LabelFor(model=>model.name)</td>
+        <td>@Html.TextBoxFor(model=>model.name)</td>
+        <td>@Html.LabelFor(model=>model.contact)</td>
+        <td> @Html.TextBoxFor(model=>model.contact)</td>
+        <td>@Html.LabelFor(model=>model.email)</td>
+        <td>
+            @Html.TextBoxFor(model=>model.email)
+        </td>
+        <td>
+                <button>
+                    Add
+                </button>
+        </td>
+        </tr>
+    </table>
+
+    
+}
